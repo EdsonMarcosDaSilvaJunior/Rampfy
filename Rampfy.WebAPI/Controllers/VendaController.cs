@@ -10,17 +10,20 @@ namespace Rampfy.WebAPI.Controllers
 
         public List<Venda> Vendas = new List<Venda>(){
             new Venda() {
-                Codigo = 1,
+                Id = 1,
+                Codigo = 1354235,
                 Data = DateTime.Now,
                 Valor = 123
             },
             new Venda() {
-                Codigo = 2,
+                Id = 2,
+                Codigo = 5467457,
                 Data = DateTime.Now,
                 Valor = 123534626
             },
             new Venda() {
-                Codigo = 3,
+                Id = 1,
+                Codigo = 123535,
                 Data = DateTime.Now,
                 Valor = 1234123123
             }
@@ -33,10 +36,10 @@ namespace Rampfy.WebAPI.Controllers
             return Ok(Vendas);
         }
 
-        [HttpGet("{codigo}")]
-        public IActionResult GetById(int codigo )
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id )
         {
-            var venda = Vendas.FirstOrDefault(v => v.Codigo == codigo);
+            var venda = Vendas.FirstOrDefault(v => v.Id == id);
             if(venda == null) return BadRequest("Não foi encontrado uma Venda com este Código!");
             return Ok(venda);
         }

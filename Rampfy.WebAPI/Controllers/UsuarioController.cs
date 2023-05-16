@@ -11,17 +11,20 @@ namespace Rampfy.WebAPI.Controllers
 
         public List<Usuario> Usuarios = new List<Usuario>(){
             new Usuario() {
-                Codigo = 1,
+                Id = 1,
+                Codigo = 123,
                 Email = "Edson@mail.com",
                 Senha = "testeSenha"
             },
             new Usuario() {
-                Codigo = 2,
+                Id = 2,
+                Codigo = 456,
                 Email = "EdsonOutro@mail.com",
                 Senha = "testeSenha"
             },
             new Usuario() {
-                Codigo = 3,
+                Id = 3,
+                Codigo = 789,
                 Email = "EdsonMaisUm@mail.com",
                 Senha = "testeSenha"
             }
@@ -34,10 +37,10 @@ namespace Rampfy.WebAPI.Controllers
             return Ok(Usuarios);
         }
 
-        [HttpGet("{codigo}")]
-        public IActionResult GetById(int codigo )
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id )
         {
-            var usuario = Usuarios.FirstOrDefault(u => u.Codigo == codigo);
+            var usuario = Usuarios.FirstOrDefault(u => u.Id == id);
             if(usuario == null) return BadRequest("Não foi encontrado um Usuário com este Código!");
             return Ok(usuario);
         }
@@ -48,8 +51,8 @@ namespace Rampfy.WebAPI.Controllers
             return Ok(usuario);
         }
 
-        [HttpDelete("{codigo}")]
-        public IActionResult Delete(int codigo)
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
         {
             return Ok();
         }
