@@ -1,6 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using Rampfy.WebAPI.Data;
+
 namespace Rampfy.WebAPI
 {
-  public class Startup
+public class Startup
     {
         public Startup(IConfiguration configuration)
         {
@@ -12,6 +15,10 @@ namespace Rampfy.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<DataContext>(
+                context => context.UseSqlite(Configuration.GetConnectionString("Default"))
+            );
+            
             services.AddControllers();
         }
 

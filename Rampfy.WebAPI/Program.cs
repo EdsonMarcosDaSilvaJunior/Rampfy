@@ -1,6 +1,4 @@
-using Rampfy.WebAPI;
-
-namespace SmartSchool.WebAPI
+namespace Rampfy.WebAPI
 {
   public class Program
     {

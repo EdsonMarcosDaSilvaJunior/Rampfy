@@ -3,7 +3,7 @@ namespace Rampfy.WebAPI.Models
   public class Venda
     {
         public Venda(){}
-    public Venda(int id, int codigo, DateTime data, float valor) 
+    public Venda(int id, int codigo, DateTime data, double valor) 
         {
             this.Id = id;
             this.Codigo = codigo;
@@ -17,6 +17,6 @@ namespace Rampfy.WebAPI.Models
 
         public DateTime Data { get; set; }
 
-        public float Valor { get; set; }
+        public double Valor { get; set; }
     }
 }
